@@ -1,2 +1,1 @@
-# STvue
-vue练习
+# Vue 练习
