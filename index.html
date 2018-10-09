@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="ch">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="stlyle.css">
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="">
+	 <script src="https://unpkg.com/vue" ></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+	<script>Vue.config.productionTip=false</script> 
 </head>
-
 <body>
-    <div>
-        <h1>CLI脚手架</h1>
+	<div id="vue-test">
+		<h1>{{ greet("fdjkf")}} </h1>
+		<h1> {{ name }}</h1>
+		<a v-bind:href="website">baidu</a>
+		<input   type="text" v-bind:value="age">
+		<input ref="inputa" @keyup="consol" type="text" v-bind:value="age">
+		<input  v-model="name">
+		<input v-bind:value="name" >
+		<p v-html="webtag"></p>
+		<button v-on:click="add">哈哈</button>
+		<button @click="add">哈哈</button>
 
-    </div>
-    
+		<div v-bind:class="{red:isred,bord:showborder}">动态绑定CSS</div>
+		<div v-bind:class="allchange">动态绑定CSS</div>
+		<button @click="changecolor">改颜色</button>
+		<button @click="changeborder">改边框</button>
+		<br>
+		<button @click="show=!show">点击显示影藏</button>
+		<div v-if="show">发货的客户反馈阶段划分地方</div>
+		<div v-else-if="show">发货的客户反馈阶段划分地方</div>
+		
+		<div>v-for</div>
+		<ul>
+			<li v-for="user in users" >{{user}}</li>
+		</ul>
+
+		<greeting></greeting>
+	</div>
+	<div id="compent">
+		<greeting></greeting>
+		<hh></hh>
+	</div>
+		<script src="app.js"></script>
+
 </body>
-
 </html>

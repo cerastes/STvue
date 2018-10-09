@@ -1,3 +1,9 @@
-.test{
-	background-color: #20FEFEFF;
+.red{
+	background-color: red;
+}
+.blue{
+	background-color: blue;
+}
+.bord{
+	border: 1px solid black;
 }

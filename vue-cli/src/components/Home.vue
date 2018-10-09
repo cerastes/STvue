@@ -1,30 +1,26 @@
 <template>
-  <div id="app">
-    <ul>
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/HelloWorld">HelloWorld</router-link></li>
-    </ul>
-    <router-view ></router-view>
-  <!--   <img src="./assets/logo.png">
+  <div id="home">
+    <div>Home</div>
+    <img src="../assets/logo.png">
     <users v-bind:users="users"></users>
     <app-header v-bind:changeTitle="changeTitle" ></app-header>
     <app-footer v-bind:changeTitle="changeTitle"  v-on:titleChanged="updateTitle($event)"></app-footer>
- -->  </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Users from './components/User'
-import Header from './components/Header'
-import Footer from './components/Foot'
+import HelloWorld from './HelloWorld'
+import Users from './User'
+import Header from './Header'
+import Footer from './Foot'
 
 
 
 export default {
-  name: 'App',
+  name: 'home',
   data(){
      return {
-      users: ["aaaa", "bbbb", "ccccc"],
+      users: [],
       changeTitle:"use for change"
    }
   },
@@ -39,6 +35,12 @@ export default {
       console.log("updateTitle"+newTitle);
       this.changeTitle=newTitle;
     }
+  },
+  created(){
+    this.$http.get("http://jsonplaceholder.typicode.com/users").then((data)=>{
+      console.log(data);
+      this.users=data.body;
+    });
   }
 
 }
